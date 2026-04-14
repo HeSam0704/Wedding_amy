@@ -11,14 +11,16 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:      #FAF8F5;
-      --bg2:     #F3F0EB;
-      --bg-dark: #2C2520;
-      --text:    #2C2520;
-      --mid:     #7A6E66;
-      --light:   #ADA49B;
-      --line:    rgba(44,37,32,0.15);
-      --white:   #FFFFFF;
+      --bg:      #fdfaf5;           /* morandi primary-bg：主頁面背景 */
+      --bg2:     #f3eeea;           /* morandi 次要區塊背景（略深） */
+      --bg-dark: #5b7065;           /* morandi-deep：Footer 深色背景 */
+      --text:    #5a4a42;           /* morandi text-main：主文字 */
+      --mid:     #9e8e84;           /* morandi text-muted：次要文字 */
+      --light:   #b8aca6;           /* morandi 輔助文字（更淺） */
+      --accent:  #8da399;           /* morandi-green：強調色 */
+      --accent2: #a66e6e;           /* morandi-red：第二強調色 */
+      --line:    rgba(90,74,66,0.14); /* 以 text-main 為基底的細線 */
+      --white:   #ffffff;
     }
 
     html { scroll-behavior: smooth; }
@@ -41,7 +43,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 48px;
-      background: rgba(250,248,245,0.92);
+      background: rgba(253,250,245,0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
       transition: box-shadow 0.3s;
@@ -174,7 +176,7 @@
       color: var(--text);
       line-height: 1.2;
     }
-    .sec-rule { width: 36px; height: 1px; background: var(--line); margin: 18px auto 0; }
+    .sec-rule { width: 36px; height: 1px; background: var(--accent); margin: 18px auto 0; opacity: 0.6; }
 
     /* ── COUNTDOWN ── */
     #countdown { padding: 100px 24px; background: var(--bg2); text-align: center; }
@@ -191,7 +193,7 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(48px, 9vw, 80px);
       font-weight: 400;
-      color: var(--text);
+      color: var(--accent);        /* morandi-green 強調色 */
       line-height: 1;
       display: block;
     }
@@ -229,17 +231,16 @@
     /* ── INFO ── */
     #info { padding: 100px 24px; background: var(--bg2); }
 
-    /* 方案 A：左圖右資訊 */
+    /* 方案 C：左大圖右資訊清單 */
     .info-inner {
       max-width: 860px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 1fr 1fr;
       border: 1px solid var(--line);
-      min-height: 360px;
     }
 
-    /* 左側直式照片 */
+    /* 左側：照片自然比例顯示 */
     .info-photo {
       overflow: hidden;
       border-right: 1px solid var(--line);
@@ -250,25 +251,21 @@
       object-fit: cover;
       object-position: center top;
       display: block;
+      min-height: 400px;
     }
 
-    /* 右側三列資訊 */
+    /* 右側：垂直資訊清單 */
     .info-rows {
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      gap: 0;
     }
     .info-row {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      padding: 0 40px;
+      padding: 40px 48px;
       border-bottom: 1px solid var(--line);
-      gap: 28px;
     }
     .info-row:last-child { border-bottom: none; }
-    .info-row-label {
-      min-width: 100px;
-    }
     .info-col-en {
       font-family: 'Montserrat', sans-serif;
       font-size: 10px;
@@ -281,11 +278,11 @@
       font-size: 12px;
       color: var(--light);
       letter-spacing: 0.12em;
+      margin-bottom: 16px;
     }
-    .info-row-content { flex: 1; }
     .info-col-main {
       font-family: 'Playfair Display', serif;
-      font-size: 19px;
+      font-size: 20px;
       font-weight: 400;
       color: var(--text);
       line-height: 1.6;
@@ -295,8 +292,8 @@
       font-size: 13px;
       font-weight: 300;
       color: var(--mid);
-      line-height: 2.0;
-      margin-top: 6px;
+      line-height: 2.1;
+      margin-top: 8px;
     }
 
     /* ── TRANSPORT ── */
@@ -402,19 +399,27 @@
       .gform-wrap { margin: 0 -4px; }
     }
 
-/* 修改後（與主頁面相同米白色） */
-footer {
-  padding: 56px 24px;
-  background: var(--bg2);       /* 改這行 → #F3F0EB 暖米白 */
-  border-top: 1px solid var(--line); /* 加一條細線做分隔 */
-  text-align: center;
-}
-.footer-name {
-  color: var(--text);           /* 改這行 → #2C2520 深棕文字 */
-}
-.footer-detail {
-  color: var(--light);          /* 改這行 → #ADA49B 淺棕文字 */
-}
+    /* ── FOOTER ── */
+    footer {
+      padding: 56px 24px;
+      background: var(--bg2);   /* morandi-deep #5b7065 */
+      text-align: center;
+    }
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--bg-dark); /* morandi primary-bg 近白 */
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+    .footer-detail {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      color: var(--bg-dark); /* morandi primary-bg 半透明 */
+    }
 
     /* ── REVEAL ── */
     .reveal {
@@ -441,9 +446,9 @@ footer {
       .nav-links.open { display: flex; }
       .hamburger { display: flex; }
       .info-inner { grid-template-columns: 1fr; }
-      .info-photo { height: 280px; border-right: none; border-bottom: 1px solid var(--line); }
-      .info-row { padding: 20px 24px; gap: 16px; }
-      .info-row-label { min-width: 72px; }
+      .info-photo { border-right: none; border-bottom: 1px solid var(--line); }
+      .info-photo img { min-height: 300px; max-height: 400px; }
+      .info-row { padding: 28px 24px; }
       .transport-grid { grid-template-columns: 1fr; }
       .transport-card { border-right: none; border-bottom: 1px solid var(--line); }
       .transport-card:last-child { border-bottom: none; }
@@ -562,47 +567,35 @@ footer {
 
     <div class="info-inner">
 
-      <!-- 左側：直式照片（將 src 換成你的照片路徑） -->
+      <!-- 左側：直式照片完整顯示（將 src 換成你的照片路徑） -->
       <div class="info-photo">
-        <img src="./DSC05243.jpg" alt="峻旋 & 怡廷" />
+        <img src="./cover.jpg" alt="峻旋 & 怡廷" />
       </div>
 
-      <!-- 右側：三列資訊 -->
+      <!-- 右側：垂直三段資訊 -->
       <div class="info-rows">
 
         <div class="info-row">
-          <div class="info-row-label">
-            <div class="info-col-en">DATE</div>
-            <div class="info-col-zh">日期</div>
-          </div>
-          <div class="info-row-content">
-            <div class="info-col-main">2026 年 07 月 04 日</div>
-            <div class="info-col-sub">星期六</div>
-          </div>
+          <div class="info-col-en">DATE</div>
+          <div class="info-col-zh">日期</div>
+          <div class="info-col-main">2026 年 07 月 04 日</div>
+          <div class="info-col-sub">星期六</div>
         </div>
 
         <div class="info-row">
-          <div class="info-row-label">
-            <div class="info-col-en">TIME</div>
-            <div class="info-col-zh">時間</div>
-          </div>
-          <div class="info-row-content">
-            <div class="info-col-main">下午 02:30</div>
-            <div class="info-col-sub">典禮開始</div>
-          </div>
+          <div class="info-col-en">TIME</div>
+          <div class="info-col-zh">時間</div>
+          <div class="info-col-main">下午 02:30</div>
+          <div class="info-col-sub">典禮開始</div>
         </div>
 
         <div class="info-row">
-          <div class="info-row-label">
-            <div class="info-col-en">LOCATION</div>
-            <div class="info-col-zh">地點</div>
-          </div>
-          <div class="info-row-content">
-            <div class="info-col-main" style="font-size:17px">基督教台南聖教會</div>
-            <div class="info-col-sub">
-              Tainan Holiness Church<br>
-              70847 臺南市安平區府前四街 90 號
-            </div>
+          <div class="info-col-en">LOCATION</div>
+          <div class="info-col-zh">地點</div>
+          <div class="info-col-main" style="font-size:17px">基督教台南聖教會</div>
+          <div class="info-col-sub">
+            Tainan Holiness Church<br>
+            70847 臺南市安平區府前四街 90 號
           </div>
         </div>
 
@@ -705,14 +698,9 @@ footer {
 </section>
 
 <!-- FOOTER -->
-<footer class="py-12 md:py-24 bg-white text-center border-t border-gray-100 bg-opacity-60">
-        <div class="serif-en text-2xl md:text-3xl font-semibold text-[#5b7065] mb-4">Sam & Amy</div>
-        <p class="serif-en text-[10px] md:text-xs text-[#9e8e84] mb-8 md:mb-10 tracking-[0.45em]">2026.07.04 | TAINAN HOLINESS CHURCH</p>
-        <div class="flex justify-center items-center space-x-4 opacity-40">
-            <div class="w-10 md:w-12 h-px bg-[#8da399]"></div>
-            <i class="fa-solid fa-heart text-[8px] text-[#8da399]"></i>
-            <div class="w-10 md:w-12 h-px bg-[#8da399]"></div>
-        </div>
+<footer>
+  <div class="footer-name">峻旋 &amp; 怡廷</div>
+  <div class="footer-detail">2026.07.04 &nbsp;|&nbsp; TAINAN HOLINESS CHURCH</div>
 </footer>
 
 <script>
