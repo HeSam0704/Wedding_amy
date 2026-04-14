@@ -21,6 +21,8 @@
       --accent2: #a66e6e;           /* morandi-red：第二強調色 */
       --line:    rgba(90,74,66,0.14); /* 以 text-main 為基底的細線 */
       --white:   #ffffff;
+      --font-zh: 'Noto Serif TC', serif;       /* 中文字體 */
+      --font-en: 'Cormorant Garamond', serif !important;  /* 英文字體 */
     }
 
     html { scroll-behavior: smooth; }
@@ -28,7 +30,7 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Noto Serif TC', serif;
+      font-family: var(--font-zh);  /* 預設中文，全頁套用 */
       font-weight: 300;
       overflow-x: hidden;
     }
@@ -49,14 +51,14 @@
       transition: box-shadow 0.3s;
     }
     .nav-logo {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-en);
       font-size: 16px;
       color: var(--text);
       letter-spacing: 0.05em;
     }
     .nav-links { list-style: none; display: flex; gap: 36px; }
     .nav-links a {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-en);
       font-size: 11px;
       font-weight: 400;
       letter-spacing: 0.18em;
@@ -88,7 +90,7 @@
       background: var(--line);
     }
     .hero-date {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-en);
       font-size: 11px;
       font-weight: 300;
       letter-spacing: 0.38em;
@@ -105,7 +107,7 @@
     .hero-divider-line { flex: 1; height: 1px; background: var(--line); }
     .hero-divider-dot  { width: 4px; height: 4px; border-radius: 50%; background: var(--light); flex-shrink: 0; }
     .hero-name {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-en);
       font-size: clamp(54px, 11vw, 108px);
       font-weight: 400;
       color: var(--text);
@@ -128,7 +130,7 @@
       animation: fadeUp 1s 0.65s both;
     }
     .hero-quote-label {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-en);
       font-size: 10px;
       letter-spacing: 0.42em;
       color: var(--light);
@@ -161,7 +163,7 @@
     /* ── SECTION HEADER ── */
     .sec-header { text-align: center; margin-bottom: 60px; }
     .sec-eyebrow {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-en);
       font-size: 10px;
       font-weight: 300;
       letter-spacing: 0.42em;
@@ -170,7 +172,7 @@
       display: block;
     }
     .sec-title {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-en);
       font-size: clamp(26px, 5vw, 42px);
       font-weight: 400;
       color: var(--text);
@@ -457,7 +459,7 @@
       text-align: center;
     }
     .footer-name {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-en);
       font-size: 26px;
       font-weight: 400;
       color: var(--bg-dark); /* morandi primary-bg 近白 */
@@ -465,7 +467,7 @@
       margin-bottom: 14px;
     }
     .footer-detail {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-en);
       font-size: 10px;
       font-weight: 300;
       letter-spacing: 0.3em;
