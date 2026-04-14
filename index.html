@@ -99,11 +99,12 @@
       z-index: 1;
     }
     .hero-date {
-      font-family: #6C7A89;
-      font-size: 22px;
+      font-family: var(--font-en);
+      font-style: italic;
+      font-size: 16px;
       font-weight: 300;
       letter-spacing: 0.38em;
-      color: var(--mid);
+      color: #5D5D5D;
       margin-bottom: 30px;
       animation: fadeUp 1s 0.2s both;
       position: relative;
@@ -137,7 +138,7 @@
 }
 .name-zh {
   font-family: var(--font-zh);
-  font-size: clamp(60px, 11vw, 110px);
+  font-size: clamp(54px, 10vw, 100px);
   font-weight: 400;
   color: var(--text);
   line-height: 1;
@@ -153,17 +154,17 @@
 }
 .name-amp {
   font-family: var(--font-en);
-  font-size: clamp(60px, 11vw, 110px);
+  font-size: clamp(54px, 10vw, 100px);
   font-weight: 400;
   font-style: italic;
   color: var(--text);
   line-height: 1;
 }
     .hero-sub {
-      font-family: #6C7A89;
-      font-size: 25px;
+      font-family: var(--font-zh);
+      font-size: 16px;
       font-weight: 300;
-      color: var(--mid);
+      color: #5D5D5D;
       letter-spacing: 0.28em;
       margin-top: 18px;
       animation: fadeUp 1s 0.5s both;
@@ -475,9 +476,19 @@
 
     /* ── DRESS CODE ── */
     #dresscode { padding: 100px 24px; background: var(--bg); text-align: center; }
-    .dc-note {
+    .dc-note1 {
       font-family: var(--font-zh);
-      font-size: 15px;
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--bg-dark);
+      line-height: 2.5;
+      max-width: 440px;
+      margin: 0 auto 12px;
+      font-weight: 600;
+    }
+     .dc-note2 {
+      font-family: var(--font-zh);
+      font-size: 18px;
       font-weight: 300;
       color: var(--mid);
       line-height: 2.5;
@@ -814,9 +825,12 @@
       <h2 class="sec-title">服裝色彩</h2>
       <div class="sec-rule"></div>
     </div>
-    <p class="dc-note">
-      白色，<br>請保留給新娘這份專屬的特別。<br><br>
-      期待這一天，<br>與你們共創繽紛豐富的色彩盛宴。
+    <p class="dc-note1">
+      白色，請保留給新娘這份專屬的
+      <span style="color: var(--accent2)">特別。</span>
+    </p>
+    <p class="dc-note2">
+      期待這一天，與你們共創繽紛豐富的色彩盛宴。
     </p>
     <div class="swatches">
       <div class="swatch">
