@@ -6,27 +6,26 @@
   <title>峻旋 & 怡廷 — 婚禮邀請</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+TC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream:   #FAF7F2;
-      --warm:    #F0EAE0;
-      --gold:    #B89A6A;
-      --gold-light: #D4B98A;
-      --deep:    #3A2E24;
-      --mid:     #6B5744;
-      --light:   #9C8470;
+      --bg:      #FAF8F5;
+      --bg2:     #F3F0EB;
+      --bg-dark: #2C2520;
+      --text:    #2C2520;
+      --mid:     #7A6E66;
+      --light:   #ADA49B;
+      --line:    rgba(44,37,32,0.15);
       --white:   #FFFFFF;
-      --section-pad: 100px 24px;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--cream);
-      color: var(--deep);
+      background: var(--bg);
+      color: var(--text);
       font-family: 'Noto Serif TC', serif;
       font-weight: 300;
       overflow-x: hidden;
@@ -37,642 +36,522 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 1000;
+      height: 56px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 40px;
-      height: 60px;
-      background: rgba(250,247,242,0.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(184,154,106,0.2);
+      padding: 0 48px;
+      background: rgba(250,248,245,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
       transition: box-shadow 0.3s;
     }
-    #navbar.scrolled { box-shadow: 0 2px 20px rgba(58,46,36,0.08); }
     .nav-logo {
-      font-family: 'Cinzel', serif;
-      font-size: 15px;
-      letter-spacing: 0.15em;
-      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      color: var(--text);
+      letter-spacing: 0.05em;
     }
-    .nav-links { list-style: none; display: flex; gap: 32px; }
+    .nav-links { list-style: none; display: flex; gap: 36px; }
     .nav-links a {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 13px;
-      letter-spacing: 0.1em;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
       color: var(--mid);
       text-decoration: none;
-      position: relative;
-      transition: color 0.3s;
+      transition: color 0.25s;
     }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -3px; left: 0;
-      width: 0; height: 1px;
-      background: var(--gold);
-      transition: width 0.3s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .nav-hamburger span { width: 22px; height: 1.5px; background: var(--mid); display: block; transition: 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 20px; height: 1px; background: var(--text); }
 
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
+      padding: 80px 24px 80px;
       position: relative;
-      overflow: hidden;
-      background: var(--deep);
+      background: var(--bg);
     }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background: linear-gradient(160deg, #2a2018 0%, #3d3020 40%, #5a4030 100%);
-    }
-    /* Decorative botanical lines */
-    .hero-bg::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image:
-        radial-gradient(ellipse 60% 80% at 20% 50%, rgba(184,154,106,0.07) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 60% at 80% 30%, rgba(184,154,106,0.05) 0%, transparent 70%);
-    }
-    .hero-ornament {
+    .hero-top-rule {
       position: absolute;
-      width: 100%; height: 100%;
-      top: 0; left: 0;
-      pointer-events: none;
-      overflow: hidden;
+      top: 72px; left: 50%;
+      transform: translateX(-50%);
+      width: 1px; height: 52px;
+      background: var(--line);
     }
-    .hero-ornament svg { position: absolute; }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding: 80px 24px 40px;
-      animation: fadeUp 1.4s ease both;
-    }
-    .hero-label {
-      font-family: 'Cinzel', serif;
+    .hero-date {
+      font-family: 'Montserrat', sans-serif;
       font-size: 11px;
-      letter-spacing: 0.4em;
-      color: var(--gold-light);
-      margin-bottom: 28px;
-      opacity: 0.8;
+      font-weight: 300;
+      letter-spacing: 0.38em;
+      color: var(--light);
+      margin-bottom: 30px;
+      animation: fadeUp 1s 0.2s both;
     }
     .hero-divider {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      justify-content: center;
-      margin: 20px auto;
-      max-width: 300px;
+      display: flex; align-items: center; gap: 18px;
+      margin: 0 auto 30px;
+      width: 200px;
+      animation: fadeUp 1s 0.3s both;
     }
-    .hero-divider-line { flex: 1; height: 1px; background: rgba(184,154,106,0.4); }
-    .hero-divider-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); }
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(52px, 10vw, 96px);
+    .hero-divider-line { flex: 1; height: 1px; background: var(--line); }
+    .hero-divider-dot  { width: 4px; height: 4px; border-radius: 50%; background: var(--light); flex-shrink: 0; }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(54px, 11vw, 108px);
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      line-height: 1.0;
+      animation: fadeUp 1s 0.4s both;
+    }
+    .hero-name em { font-style: italic; }
+    .hero-sub {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
       font-weight: 300;
-      color: var(--white);
-      line-height: 1.05;
-      letter-spacing: 0.05em;
-      margin-bottom: 8px;
+      color: var(--mid);
+      letter-spacing: 0.28em;
+      margin-top: 18px;
+      animation: fadeUp 1s 0.5s both;
     }
-    .hero-title span { color: var(--gold-light); font-style: italic; }
-    .hero-subtitle {
-      font-size: 15px;
-      color: rgba(255,255,255,0.55);
-      letter-spacing: 0.2em;
-      margin-top: 16px;
+    .hero-quote-wrap {
+      margin-top: 64px;
+      animation: fadeUp 1s 0.65s both;
     }
-    .hero-quote {
+    .hero-quote-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.42em;
+      color: var(--light);
+      margin-bottom: 18px;
+    }
+    .hero-rule { width: 36px; height: 1px; background: var(--line); margin: 0 auto 18px; }
+    .hero-quote-zh {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(16px, 2.6vw, 22px);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 2.1;
+    }
+    .hero-quote-en {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 18px;
-      color: rgba(255,255,255,0.65);
-      margin-top: 36px;
-      line-height: 1.7;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 16px;
+      color: var(--mid);
+      line-height: 2.0;
+      margin-top: 14px;
     }
-    .hero-scroll {
+    .hero-scroll-line {
       position: absolute;
-      bottom: 36px; left: 50%;
+      bottom: 0; left: 50%;
       transform: translateX(-50%);
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      color: rgba(255,255,255,0.35);
+      width: 1px; height: 56px;
+      background: linear-gradient(to bottom, var(--line), transparent);
+    }
+
+    /* ── SECTION HEADER ── */
+    .sec-header { text-align: center; margin-bottom: 60px; }
+    .sec-eyebrow {
+      font-family: 'Montserrat', sans-serif;
       font-size: 10px;
-      letter-spacing: 0.25em;
-      animation: bounce 2s infinite;
+      font-weight: 300;
+      letter-spacing: 0.42em;
+      color: var(--light);
+      margin-bottom: 14px;
+      display: block;
     }
-    .hero-scroll::after {
-      content: '';
-      width: 1px; height: 40px;
-      background: linear-gradient(to bottom, rgba(184,154,106,0.5), transparent);
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 5vw, 42px);
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.2;
     }
+    .sec-rule { width: 36px; height: 1px; background: var(--line); margin: 18px auto 0; }
 
     /* ── COUNTDOWN ── */
-    #countdown {
-      padding: var(--section-pad);
-      background: var(--warm);
-      text-align: center;
-    }
-    .section-eyebrow {
-      font-family: 'Cinzel', serif;
-      font-size: 11px;
-      letter-spacing: 0.35em;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(28px, 5vw, 44px);
-      font-weight: 300;
-      color: var(--deep);
-      margin-bottom: 12px;
-    }
-    .section-en {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 16px;
-      color: var(--light);
-      margin-bottom: 52px;
-    }
-    .countdown-grid {
+    #countdown { padding: 100px 24px; background: var(--bg2); text-align: center; }
+    .cd-grid {
       display: flex;
       justify-content: center;
-      gap: clamp(16px, 4vw, 52px);
-      flex-wrap: wrap;
-    }
-    .countdown-item {
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: clamp(20px, 5vw, 60px);
+      flex-wrap: wrap;
+      margin-top: 52px;
     }
-    .countdown-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(48px, 8vw, 80px);
-      font-weight: 300;
-      color: var(--deep);
+    .cd-item { text-align: center; }
+    .cd-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 9vw, 80px);
+      font-weight: 400;
+      color: var(--text);
       line-height: 1;
-      min-width: 100px;
-      text-align: center;
-      position: relative;
-    }
-    .countdown-num::after {
-      content: '';
       display: block;
-      width: 40px; height: 1px;
-      background: var(--gold);
-      margin: 10px auto 0;
     }
-    .countdown-label {
-      font-family: 'Cinzel', serif;
-      font-size: 11px;
-      letter-spacing: 0.3em;
+    .cd-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.32em;
       color: var(--light);
+      margin-top: 12px;
+      display: block;
     }
+    .cd-sep { width: 1px; height: 56px; background: var(--line); }
+    @media(max-width:600px){ .cd-sep { display: none; } }
 
     /* ── ABOUT ── */
-    #about {
-      padding: var(--section-pad);
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    #about .section-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(20px, 3.5vw, 30px);
+    #about { padding: 100px 24px; text-align: center; }
+    .about-body { max-width: 580px; margin: 0 auto; }
+    .about-zh {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(17px, 2.8vw, 24px);
       font-weight: 300;
-      line-height: 1.9;
-      color: var(--deep);
-      margin-bottom: 20px;
+      line-height: 2.3;
+      color: var(--text);
     }
-    #about .section-quote-en {
+    .about-en {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: 16px;
-      color: var(--light);
-      line-height: 1.9;
+      color: var(--mid);
+      line-height: 2.1;
+      margin-top: 20px;
     }
 
     /* ── INFO ── */
-    #info {
-      padding: var(--section-pad);
-      background: var(--deep);
-      color: var(--white);
-    }
-    #info .section-eyebrow { color: var(--gold-light); }
-    #info .section-title { color: var(--white); }
-    #info .section-en { color: rgba(255,255,255,0.45); }
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2px;
-      max-width: 900px;
+    #info { padding: 100px 24px; background: var(--bg2); }
+    .info-inner {
+      max-width: 860px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr 1px 1fr;
     }
-    .info-card {
-      padding: 48px 36px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(184,154,106,0.15);
-      text-align: center;
-      transition: background 0.3s;
-    }
-    .info-card:hover { background: rgba(184,154,106,0.07); }
-    .info-icon {
-      font-size: 22px;
-      margin-bottom: 20px;
-      opacity: 0.8;
-    }
-    .info-card-en {
-      font-family: 'Cinzel', serif;
+    .info-divider { background: var(--line); margin: 0 24px; }
+    .info-col { text-align: center; padding: 36px 16px; }
+    .info-col-en {
+      font-family: 'Montserrat', sans-serif;
       font-size: 10px;
-      letter-spacing: 0.3em;
-      color: var(--gold);
-      margin-bottom: 8px;
+      letter-spacing: 0.38em;
+      color: var(--light);
+      margin-bottom: 6px;
     }
-    .info-card-zh {
-      font-size: 13px;
-      letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 20px;
+    .info-col-zh {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 12px;
+      color: var(--light);
+      letter-spacing: 0.12em;
+      margin-bottom: 22px;
     }
-    .info-card-main {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
+    .info-col-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
       font-weight: 400;
-      color: var(--white);
-      line-height: 1.5;
+      color: var(--text);
+      line-height: 1.7;
     }
-    .info-card-sub {
-      margin-top: 10px;
+    .info-col-sub {
+      font-family: 'Noto Serif TC', serif;
       font-size: 13px;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.8;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 2.1;
+      margin-top: 10px;
     }
-    #info .section-eyebrow, #info .section-title, #info .section-en { text-align: center; }
-    #info .section-title { margin-bottom: 8px; }
-    #info .section-en { margin-bottom: 52px; }
 
     /* ── TRANSPORT ── */
-    #transport {
-      padding: var(--section-pad);
-      background: var(--warm);
-      text-align: center;
-    }
+    #transport { padding: 100px 24px; }
     .transport-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 24px;
-      max-width: 800px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      max-width: 820px;
       margin: 0 auto;
+      border: 1px solid var(--line);
     }
     .transport-card {
-      background: var(--white);
-      border: 1px solid rgba(184,154,106,0.2);
-      padding: 36px 24px;
+      padding: 48px 32px;
       text-align: center;
+      border-right: 1px solid var(--line);
     }
-    .transport-icon { font-size: 28px; margin-bottom: 16px; }
-    .transport-title {
-      font-family: 'Cinzel', serif;
-      font-size: 11px;
-      letter-spacing: 0.3em;
-      color: var(--gold);
-      margin-bottom: 12px;
+    .transport-card:last-child { border-right: none; }
+    .t-en {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.38em;
+      color: var(--light);
+      margin-bottom: 6px;
     }
-    .transport-body {
-      font-size: 14px;
+    .t-zh {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 18px;
+      color: var(--text);
+      margin-bottom: 22px;
+    }
+    .t-body {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 13px;
+      font-weight: 300;
       color: var(--mid);
-      line-height: 2;
+      line-height: 2.3;
     }
 
-    /* ── DRESSCODE ── */
-    #dresscode {
-      padding: var(--section-pad);
-      text-align: center;
-    }
-    .dresscode-note {
-      max-width: 480px;
-      margin: 0 auto 52px;
+    /* ── DRESS CODE ── */
+    #dresscode { padding: 100px 24px; background: var(--bg2); text-align: center; }
+    .dc-note {
+      font-family: 'Noto Serif TC', serif;
       font-size: 15px;
+      font-weight: 300;
       color: var(--mid);
-      line-height: 2;
+      line-height: 2.5;
+      max-width: 440px;
+      margin: 0 auto 52px;
     }
-    .swatch-row {
+    .swatches {
       display: flex;
       justify-content: center;
-      gap: clamp(10px, 2vw, 24px);
+      gap: clamp(12px, 2.5vw, 28px);
       flex-wrap: wrap;
     }
-    .swatch {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      cursor: default;
-    }
+    .swatch { display: flex; flex-direction: column; align-items: center; gap: 12px; }
     .swatch-circle {
-      width: clamp(56px, 8vw, 80px);
-      height: clamp(56px, 8vw, 80px);
+      width: clamp(52px, 7.5vw, 74px);
+      height: clamp(52px, 7.5vw, 74px);
       border-radius: 50%;
-      border: 2px solid rgba(0,0,0,0.06);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
       transition: transform 0.3s;
     }
-    .swatch:hover .swatch-circle { transform: scale(1.1); }
+    .swatch:hover .swatch-circle { transform: translateY(-4px); }
     .swatch-name {
-      font-family: 'Cinzel', serif;
-      font-size: 10px;
-      letter-spacing: 0.2em;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
       color: var(--light);
     }
 
     /* ── RSVP ── */
-    #rsvp {
-      padding: var(--section-pad);
-      background: var(--deep);
-      text-align: center;
-    }
-    #rsvp .section-eyebrow { color: var(--gold-light); }
-    #rsvp .section-title { color: var(--white); }
-    #rsvp .section-en { color: rgba(255,255,255,0.4); }
+    #rsvp { padding: 100px 24px; text-align: center; }
     .rsvp-note {
-      color: rgba(255,255,255,0.5);
-      font-size: 14px;
-      margin-bottom: 48px;
-      line-height: 2;
-    }
-    .rsvp-form {
-      max-width: 520px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .rsvp-form input,
-    .rsvp-form select,
-    .rsvp-form textarea {
-      width: 100%;
-      padding: 16px 20px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(184,154,106,0.25);
-      color: var(--white);
       font-family: 'Noto Serif TC', serif;
-      font-size: 14px;
-      letter-spacing: 0.05em;
-      outline: none;
-      transition: border-color 0.3s, background 0.3s;
-      -webkit-appearance: none;
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 2.5;
+      margin-bottom: 8px;
     }
-    .rsvp-form input::placeholder,
-    .rsvp-form textarea::placeholder { color: rgba(255,255,255,0.3); }
-    .rsvp-form input:focus,
-    .rsvp-form select:focus,
-    .rsvp-form textarea:focus {
-      border-color: var(--gold);
-      background: rgba(184,154,106,0.08);
-    }
-    .rsvp-form select option { background: var(--deep); color: var(--white); }
-    .rsvp-form textarea { resize: vertical; min-height: 100px; }
-    .rsvp-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .rsvp-btn {
-      margin-top: 8px;
-      padding: 18px 48px;
-      background: transparent;
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      font-family: 'Cinzel', serif;
-      font-size: 12px;
-      letter-spacing: 0.3em;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
-      align-self: center;
-    }
-    .rsvp-btn:hover { background: var(--gold); color: var(--deep); }
-    #rsvp-success {
-      display: none;
-      margin-top: 24px;
+    .rsvp-en {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 20px;
-      color: var(--gold-light);
+      font-size: 17px;
+      color: var(--light);
+      margin-bottom: 52px;
+    }
+    .gform-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      border: 1px solid var(--line);
+      background: var(--white);
+      overflow: hidden;
+    }
+    .gform-wrap iframe {
+      display: block;
+      width: 100%;
+      border: none;
+    }
+    @media (max-width: 680px) {
+      .gform-wrap { margin: 0 -4px; }
     }
 
     /* ── FOOTER ── */
     footer {
-      padding: 52px 24px;
-      background: #1e1812;
+      padding: 56px 24px;
+      background: var(--bg-dark);
       text-align: center;
     }
     .footer-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      font-weight: 300;
-      color: var(--gold);
-      letter-spacing: 0.1em;
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.08em;
       margin-bottom: 14px;
     }
     .footer-detail {
-      font-family: 'Cinzel', serif;
-      font-size: 11px;
-      letter-spacing: 0.25em;
-      color: rgba(255,255,255,0.3);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      color: rgba(255,255,255,0.28);
     }
 
-    /* ── SECTION DECORATOR ── */
-    .section-ornament {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-    .section-ornament-line { width: 40px; height: 1px; background: var(--gold-light); opacity: 0.5; }
-    .section-ornament-icon { color: var(--gold); font-size: 14px; opacity: 0.7; }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50%       { transform: translateX(-50%) translateY(6px); }
-    }
+    /* ── REVEAL ── */
     .reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
+      transform: translateY(22px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: none; }
+    }
 
     /* ── MOBILE ── */
-    @media (max-width: 640px) {
-      :root { --section-pad: 72px 20px; }
+    @media (max-width: 700px) {
       #navbar { padding: 0 20px; }
-      .nav-links { display: none; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: rgba(250,247,242,0.98); padding: 24px; gap: 20px; border-bottom: 1px solid rgba(184,154,106,0.2); }
+      .nav-links {
+        display: none; flex-direction: column;
+        position: fixed; top: 56px; left: 0; right: 0;
+        background: var(--bg); padding: 28px 32px; gap: 22px;
+        border-bottom: 1px solid var(--line);
+      }
       .nav-links.open { display: flex; }
-      .nav-hamburger { display: flex; }
+      .hamburger { display: flex; }
+      .info-inner { grid-template-columns: 1fr; }
+      .info-divider { width: 36px; height: 1px; margin: 0 auto; }
+      .transport-grid { grid-template-columns: 1fr; }
+      .transport-card { border-right: none; border-bottom: 1px solid var(--line); }
+      .transport-card:last-child { border-bottom: none; }
       .rsvp-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── NAVBAR ── -->
+<!-- NAVBAR -->
 <nav id="navbar">
-  <div class="nav-logo">峻旋 & 怡廷</div>
+  <div class="nav-logo">峻旋 &amp; 怡廷</div>
   <ul class="nav-links" id="nav-links">
     <li><a href="#about">關於我們</a></li>
     <li><a href="#info">婚禮資訊</a></li>
     <li><a href="#dresscode">服裝色彩</a></li>
     <li><a href="#rsvp">出席回函</a></li>
   </ul>
-  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+  <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <section id="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-top-rule"></div>
 
-  <!-- Decorative SVG botanical lines -->
-  <div class="hero-ornament">
-    <svg width="200" height="400" viewBox="0 0 200 400" style="top:10%;left:-20px;opacity:0.12">
-      <path d="M100,0 Q60,100 100,200 Q140,300 100,400" stroke="#B89A6A" stroke-width="1" fill="none"/>
-      <path d="M100,80 Q40,120 20,160" stroke="#B89A6A" stroke-width="0.8" fill="none"/>
-      <path d="M100,160 Q160,190 180,230" stroke="#B89A6A" stroke-width="0.8" fill="none"/>
-      <path d="M100,240 Q50,270 30,310" stroke="#B89A6A" stroke-width="0.8" fill="none"/>
-      <circle cx="20" cy="160" r="3" fill="#B89A6A"/>
-      <circle cx="180" cy="230" r="3" fill="#B89A6A"/>
-      <circle cx="30" cy="310" r="3" fill="#B89A6A"/>
-    </svg>
-    <svg width="200" height="400" viewBox="0 0 200 400" style="top:15%;right:-20px;opacity:0.12;transform:scaleX(-1)">
-      <path d="M100,0 Q60,100 100,200 Q140,300 100,400" stroke="#B89A6A" stroke-width="1" fill="none"/>
-      <path d="M100,80 Q40,120 20,160" stroke="#B89A6A" stroke-width="0.8" fill="none"/>
-      <path d="M100,160 Q160,190 180,230" stroke="#B89A6A" stroke-width="0.8" fill="none"/>
-      <path d="M100,240 Q50,270 30,310" stroke="#B89A6A" stroke-width="0.8" fill="none"/>
-      <circle cx="20" cy="160" r="3" fill="#B89A6A"/>
-      <circle cx="180" cy="230" r="3" fill="#B89A6A"/>
-      <circle cx="30" cy="310" r="3" fill="#B89A6A"/>
-    </svg>
+  <p class="hero-date">2026.07.04 SATURDAY</p>
+
+  <div class="hero-divider">
+    <div class="hero-divider-line"></div>
+    <div class="hero-divider-dot"></div>
+    <div class="hero-divider-line"></div>
   </div>
 
-  <div class="hero-content">
-    <p class="hero-label">2026 · 07 · 04 &nbsp;SATURDAY</p>
-    <div class="hero-divider">
-      <div class="hero-divider-line"></div>
-      <div class="hero-divider-diamond"></div>
-      <div class="hero-divider-line"></div>
-    </div>
-    <h1 class="hero-title">峻旋 <span>&</span> 怡廷</h1>
-    <p class="hero-subtitle">我們結婚了 &nbsp;·&nbsp; WE ARE GETTING MARRIED</p>
-    <p class="hero-quote">
-      願餘生，有你相伴，<br>
-      歲月從此有了溫度。<br>
-      <em style="font-size:15px;opacity:0.7">May the rest of our lives be filled with each other.</em>
+  <h1 class="hero-name">峻旋 <em>&amp;</em> 怡廷</h1>
+  <p class="hero-sub">我們結婚了</p>
+
+  <div class="hero-quote-wrap">
+    <p class="hero-quote-label">ETERNAL PROMISE</p>
+    <div class="hero-rule"></div>
+    <p class="hero-quote-zh">
+      因著你，我才明白什麼是家<br>
+      願餘生的每一天，都有你相伴
+    </p>
+    <p class="hero-quote-en">
+      Because of you, I finally understand what home means.<br>
+      May every day of the rest of our lives be spent together.
     </p>
   </div>
 
-  <div class="hero-scroll">SCROLL</div>
+  <div class="hero-scroll-line"></div>
 </section>
 
-<!-- ── COUNTDOWN ── -->
+<!-- COUNTDOWN -->
 <section id="countdown">
   <div class="reveal">
-    <div class="section-ornament">
-      <div class="section-ornament-line"></div>
-      <span class="section-ornament-icon">◆</span>
-      <div class="section-ornament-line"></div>
+    <div class="sec-header">
+      <span class="sec-eyebrow">COUNTING DOWN</span>
+      <h2 class="sec-title">距離婚禮還有</h2>
+      <div class="sec-rule"></div>
     </div>
-    <p class="section-eyebrow">COUNTING DOWN</p>
-    <h2 class="section-title">距離婚禮還有</h2>
-    <p class="section-en">Eternal Promise</p>
-    <div class="countdown-grid">
-      <div class="countdown-item">
-        <div class="countdown-num" id="cd-days">00</div>
-        <div class="countdown-label">DAYS</div>
+    <div class="cd-grid">
+      <div class="cd-item">
+        <span class="cd-num" id="cd-days">00</span>
+        <span class="cd-label">DAYS</span>
       </div>
-      <div class="countdown-item">
-        <div class="countdown-num" id="cd-hours">00</div>
-        <div class="countdown-label">HOURS</div>
+      <div class="cd-sep"></div>
+      <div class="cd-item">
+        <span class="cd-num" id="cd-hours">00</span>
+        <span class="cd-label">HOURS</span>
       </div>
-      <div class="countdown-item">
-        <div class="countdown-num" id="cd-mins">00</div>
-        <div class="countdown-label">MINS</div>
+      <div class="cd-sep"></div>
+      <div class="cd-item">
+        <span class="cd-num" id="cd-mins">00</span>
+        <span class="cd-label">MINS</span>
       </div>
-      <div class="countdown-item">
-        <div class="countdown-num" id="cd-secs">00</div>
-        <div class="countdown-label">SECS</div>
+      <div class="cd-sep"></div>
+      <div class="cd-item">
+        <span class="cd-num" id="cd-secs">00</span>
+        <span class="cd-label">SECS</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── ABOUT ── -->
+<!-- ABOUT -->
 <section id="about">
   <div class="reveal">
-    <div class="section-ornament">
-      <div class="section-ornament-line"></div>
-      <span class="section-ornament-icon">◆</span>
-      <div class="section-ornament-line"></div>
+    <div class="sec-header">
+      <span class="sec-eyebrow">ABOUT US</span>
+      <h2 class="sec-title">關於我們</h2>
+      <div class="sec-rule"></div>
     </div>
-    <p class="section-eyebrow">ABOUT US</p>
-    <h2 class="section-title">關於我們</h2>
-    <div style="height:40px"></div>
-    <p class="section-quote">
-      因著你，我才明白什麼是家。<br>
-      因著你，每一天都值得珍藏。
-    </p>
-    <div style="height:20px"></div>
-    <p class="section-quote-en">
-      Because of you, I finally understand what home means.<br>
-      Because of you, every day is worth keeping.
-    </p>
+    <div class="about-body">
+      <p class="about-zh">
+        因著你，我才明白什麼是家。<br>
+        因著你，每一天都值得珍藏。
+      </p>
+      <p class="about-en">
+        Because of you, I finally understand what home means.<br>
+        Because of you, every day is worth keeping.
+      </p>
+    </div>
   </div>
 </section>
 
-<!-- ── INFO ── -->
+<!-- INFO -->
 <section id="info">
   <div class="reveal">
-    <p class="section-eyebrow">WEDDING DETAILS</p>
-    <h2 class="section-title">婚禮資訊</h2>
-    <p class="section-en">Join us on our special day</p>
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="info-icon">📅</div>
-        <div class="info-card-en">DATE</div>
-        <div class="info-card-zh">日期</div>
-        <div class="info-card-main">2026 年 07 月 04 日</div>
-        <div class="info-card-sub">星期六 · Saturday</div>
+    <div class="sec-header">
+      <span class="sec-eyebrow">WEDDING DETAILS</span>
+      <h2 class="sec-title">婚禮資訊</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="info-inner">
+      <div class="info-col">
+        <div class="info-col-en">DATE</div>
+        <div class="info-col-zh">日期</div>
+        <div class="info-col-main">2026 年 07 月 04 日</div>
+        <div class="info-col-sub">星期六</div>
       </div>
-      <div class="info-card">
-        <div class="info-icon">🕐</div>
-        <div class="info-card-en">TIME</div>
-        <div class="info-card-zh">時間</div>
-        <div class="info-card-main">下午 02:00</div>
-        <div class="info-card-sub">開放入場<br>Ceremony Begins</div>
-        <div class="info-card-main">下午 02:30</div>
-        <div class="info-card-sub">典禮開始<br>Ceremony Begins</div>
+      <div class="info-divider"></div>
+      <div class="info-col">
+        <div class="info-col-en">TIME</div>
+        <div class="info-col-zh">時間</div>
+        <div class="info-col-main">下午 02:30</div>
+        <div class="info-col-sub">典禮開始</div>
       </div>
-      <div class="info-card">
-        <div class="info-icon">📍</div>
-        <div class="info-card-en">LOCATION</div>
-        <div class="info-card-zh">地點</div>
-        <div class="info-card-main" style="font-size:18px">基督教台南聖教會</div>
-        <div class="info-card-sub">
+      <div class="info-divider"></div>
+      <div class="info-col">
+        <div class="info-col-en">LOCATION</div>
+        <div class="info-col-zh">地點</div>
+        <div class="info-col-main" style="font-size:17px">基督教台南聖教會</div>
+        <div class="info-col-sub">
           Tainan Holiness Church<br>
           70847 臺南市安平區<br>府前四街 90 號
         </div>
@@ -681,206 +560,152 @@
   </div>
 </section>
 
-<!-- ── TRANSPORT ── -->
+<!-- TRANSPORT -->
 <section id="transport">
   <div class="reveal">
-    <div class="section-ornament">
-      <div class="section-ornament-line"></div>
-      <span class="section-ornament-icon">◆</span>
-      <div class="section-ornament-line"></div>
+    <div class="sec-header">
+      <span class="sec-eyebrow">TRANSPORTATION</span>
+      <h2 class="sec-title">交通資訊</h2>
+      <div class="sec-rule"></div>
     </div>
-    <p class="section-eyebrow">TRANSPORTATION</p>
-    <h2 class="section-title">交通資訊</h2>
-    <p class="section-en">How to get there</p>
     <div class="transport-grid">
       <div class="transport-card">
-        <div class="transport-icon">🚇</div>
-        <div class="transport-title">捷運 MRT</div>
-        <div class="transport-body">
-          （待確認）<br>
-          請依最新路線查詢
-        </div>
+        <div class="t-en">MRT</div>
+        <div class="t-zh">捷運</div>
+        <div class="t-body">（路線待確認）<br>請依最新路線查詢</div>
       </div>
       <div class="transport-card">
-        <div class="transport-icon">🚌</div>
-        <div class="transport-title">公車 BUS</div>
-        <div class="transport-body">
-          （待確認）<br>
-          建議查詢台南公車路線
-        </div>
+        <div class="t-en">BUS</div>
+        <div class="t-zh">公車</div>
+        <div class="t-body">（路線待確認）<br>建議查詢台南公車路線</div>
       </div>
       <div class="transport-card">
-        <div class="transport-icon">🚗</div>
-        <div class="transport-title">停車 PARKING</div>
-        <div class="transport-body">
-          （待確認）<br>
-          建議使用附近停車場
-        </div>
+        <div class="t-en">PARKING</div>
+        <div class="t-zh">停車</div>
+        <div class="t-body">（待確認）<br>建議使用附近停車場</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── DRESSCODE ── -->
+<!-- DRESS CODE -->
 <section id="dresscode">
   <div class="reveal">
-    <div class="section-ornament">
-      <div class="section-ornament-line"></div>
-      <span class="section-ornament-icon">◆</span>
-      <div class="section-ornament-line"></div>
+    <div class="sec-header">
+      <span class="sec-eyebrow">DRESS CODE</span>
+      <h2 class="sec-title">服裝色彩</h2>
+      <div class="sec-rule"></div>
     </div>
-    <p class="section-eyebrow">DRESS CODE</p>
-    <h2 class="section-title">服裝色彩</h2>
-    <p class="section-en">Dress for the occasion</p>
-    <div class="dresscode-note">
-      白色，請保留給新娘這份專屬的特別。<br>
-      期待這一天，與你們共創繽紛色彩的盛宴。<br>
-      <em style="font-size:13px;color:var(--light)">Please reserve white for the bride. We look forward to celebrating in color with you.</em>
-    </div>
-    <div class="swatch-row">
+    <p class="dc-note">
+      白色，<br>請保留給新娘這份專屬的特別。<br><br>
+      期待這一天，<br>與你們共創繽紛豐富的色彩盛宴。
+    </p>
+    <div class="swatches">
       <div class="swatch">
         <div class="swatch-circle" style="background:#F4A7B9"></div>
-        <div class="swatch-name">PINK</div>
+        <span class="swatch-name">PINK</span>
       </div>
       <div class="swatch">
         <div class="swatch-circle" style="background:#A8D5BA"></div>
-        <div class="swatch-name">GREEN</div>
+        <span class="swatch-name">GREEN</span>
       </div>
       <div class="swatch">
         <div class="swatch-circle" style="background:#C3B1E1"></div>
-        <div class="swatch-name">PURPLE</div>
+        <span class="swatch-name">PURPLE</span>
       </div>
       <div class="swatch">
         <div class="swatch-circle" style="background:#FFE08A"></div>
-        <div class="swatch-name">YELLOW</div>
+        <span class="swatch-name">YELLOW</span>
       </div>
       <div class="swatch">
         <div class="swatch-circle" style="background:#A2C4E0"></div>
-        <div class="swatch-name">BLUE</div>
+        <span class="swatch-name">BLUE</span>
       </div>
       <div class="swatch">
         <div class="swatch-circle" style="background:#BDBDBD"></div>
-        <div class="swatch-name">GREY</div>
+        <span class="swatch-name">GREY</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── RSVP ── -->
+<!-- RSVP -->
 <section id="rsvp">
   <div class="reveal">
-    <p class="section-eyebrow">RSVP</p>
-    <h2 class="section-title">出席回函</h2>
-    <p class="section-en">We look forward to celebrating with you</p>
+    <div class="sec-header">
+      <span class="sec-eyebrow">RSVP</span>
+      <h2 class="sec-title">出席回函</h2>
+      <div class="sec-rule"></div>
+    </div>
     <p class="rsvp-note">
-      在最重要的日子，期待有你一起。<br>
-      請於 <strong style="color:var(--gold-light)">2026 年 06 月 14 日</strong> 前完成回覆，感謝。
+      在最重要的日子，<br>期待有你一起
     </p>
-    <form class="rsvp-form" id="rsvp-form" onsubmit="submitRSVP(event)">
-      <div class="rsvp-row">
-        <input type="text" name="name" placeholder="姓名 Name" required />
-        <input type="tel" name="phone" placeholder="聯絡電話 Phone" />
-      </div>
-      <select name="attend" required>
-        <option value="" disabled selected>出席狀態 Attendance</option>
-        <option value="yes">✓ 我會出席 I will attend</option>
-        <option value="no">✗ 無法出席 Unable to attend</option>
-      </select>
-      <div class="rsvp-row">
-        <input type="number" name="count" placeholder="出席人數 Guests" min="1" max="10" />
-        <input type="text" name="diet" placeholder="飲食需求 Dietary" />
-      </div>
-      <textarea name="message" placeholder="留言給新人 Message to the couple"></textarea>
-      <button type="submit" class="rsvp-btn">送出回函 SEND RSVP</button>
-    </form>
-    <p id="rsvp-success">✦ 感謝您的回覆，我們期待在婚禮上見到您！✦</p>
+    <p class="rsvp-en">Waiting for your witness</p>
+
+    <div class="gform-wrap">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfz-yJjflU_FT6Zm6EoXUG9ad47Wd86166313m6kP9p8LsJ0A/viewform?embedded=true"
+        height="1843"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0">載入中…</iframe>
+    </div>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
-  <div class="footer-name">峻旋 & 怡廷</div>
-  <div class="footer-detail">2026.07.04 &nbsp;·&nbsp; TAINAN HOLINESS CHURCH &nbsp;·&nbsp; TAINAN, TAIWAN</div>
+  <div class="footer-name">峻旋 &amp; 怡廷</div>
+  <div class="footer-detail">2026.07.04 &nbsp;|&nbsp; TAINAN HOLINESS CHURCH</div>
 </footer>
 
 <script>
-  // ── Navbar scroll ──
-  const navbar = document.getElementById('navbar');
+  // Navbar
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('navbar').style.boxShadow =
+      window.scrollY > 30 ? '0 1px 16px rgba(44,37,32,0.07)' : 'none';
   });
 
-  // ── Mobile menu ──
+  // Mobile menu
   function toggleMenu() {
     document.getElementById('nav-links').classList.toggle('open');
   }
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => document.getElementById('nav-links').classList.remove('open'));
-  });
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.addEventListener('click', () => document.getElementById('nav-links').classList.remove('open'))
+  );
 
-  // ── Active nav on scroll ──
+  // Active nav highlight
   const sections = document.querySelectorAll('section[id]');
   window.addEventListener('scroll', () => {
     let cur = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 80) cur = s.id;
-    });
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
-    });
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 70) cur = s.id; });
+    document.querySelectorAll('.nav-links a').forEach(a =>
+      a.classList.toggle('active', a.getAttribute('href') === '#' + cur)
+    );
   });
 
-  // ── Countdown ──
+  // Countdown
   const target = new Date('2026-07-04T14:30:00');
   function tick() {
     const diff = target - new Date();
-    if (diff <= 0) {
-      ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => document.getElementById(id).textContent = '00');
-      return;
-    }
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor(diff % 86400000 / 3600000);
-    const m = Math.floor(diff % 3600000 / 60000);
-    const s = Math.floor(diff % 60000 / 1000);
-    document.getElementById('cd-days').textContent  = String(d).padStart(2,'0');
-    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
-    document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
-    document.getElementById('cd-secs').textContent  = String(s).padStart(2,'0');
+    if (diff <= 0) return;
+    const pad = n => String(n).padStart(2, '0');
+    document.getElementById('cd-days').textContent  = pad(Math.floor(diff / 86400000));
+    document.getElementById('cd-hours').textContent = pad(Math.floor(diff % 86400000 / 3600000));
+    document.getElementById('cd-mins').textContent  = pad(Math.floor(diff % 3600000 / 60000));
+    document.getElementById('cd-secs').textContent  = pad(Math.floor(diff % 60000 / 1000));
   }
-  tick();
-  setInterval(tick, 1000);
+  tick(); setInterval(tick, 1000);
 
-  // ── Scroll reveal ──
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  reveals.forEach(r => io.observe(r));
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(r => io.observe(r));
 
-  // ── RSVP submit (Google Sheets Apps Script) ──
-  // 請將下方 URL 換成你的 Google Apps Script 部署網址
-  const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
 
-  async function submitRSVP(e) {
-    e.preventDefault();
-    const btn = document.querySelector('.rsvp-btn');
-    btn.textContent = '送出中...';
-    btn.disabled = true;
-
-    const formData = new FormData(e.target);
-
-    try {
-      if (SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
-        await fetch(SCRIPT_URL, { method: 'POST', body: formData });
-      }
-      document.getElementById('rsvp-form').style.display = 'none';
-      document.getElementById('rsvp-success').style.display = 'block';
-    } catch (err) {
-      btn.textContent = '送出回函 SEND RSVP';
-      btn.disabled = false;
-      alert('送出失敗，請稍後再試。');
-    }
-  }
 </script>
 </body>
 </html>
