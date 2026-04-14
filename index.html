@@ -446,8 +446,18 @@
       .nav-links.open { display: flex; }
       .hamburger { display: flex; }
       .info-inner { grid-template-columns: 1fr; }
-      .info-photo { border-right: none; border-bottom: 1px solid var(--line); }
-      .info-photo img { min-height: 300px; max-height: 400px; }
+      .info-photo {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        height: auto;              /* 取消固定高度，讓照片自然展開 */
+      }
+      .info-photo img {
+        height: auto;              /* 依照片原始比例完整顯示 */
+        min-height: unset;         /* 清除桌面版的 min-height */
+        object-fit: contain;       /* 完整顯示，不裁切 */
+        object-position: center;
+        background: var(--bg2);    /* 照片兩側若有空白，填入背景色 */
+      }
       .info-row { padding: 28px 24px; }
       .transport-grid { grid-template-columns: 1fr; }
       .transport-card { border-right: none; border-bottom: 1px solid var(--line); }
