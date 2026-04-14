@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>峻旋 Sam & 怡廷 Amy — 婚禮邀請</title>
+  <title>峻旋 & 怡廷 — 婚禮邀請</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+TC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet" />
@@ -229,58 +229,74 @@
     /* ── INFO ── */
     #info { padding: 100px 24px; background: var(--bg2); }
 
-    /* 照片區塊 */
-    .info-photo {
-      max-width: 860px;
-      margin: 0 auto 64px;
-      overflow: hidden;
-    }
-    .info-photo img {
-      width: 100%;
-      height: clamp(260px, 40vw, 480px);
-      object-fit: cover;
-      display: block;
-      filter: brightness(0.97);
-    }
-
-    /* 橫向三欄資訊 */
+    /* 方案 A：左圖右資訊 */
     .info-inner {
       max-width: 860px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1px 1fr 1px 1fr;
+      grid-template-columns: 280px 1fr;
       border: 1px solid var(--line);
+      min-height: 360px;
     }
-    .info-divider { background: var(--line); }
-    .info-col { text-align: center; padding: 48px 24px; }
+
+    /* 左側直式照片 */
+    .info-photo {
+      overflow: hidden;
+      border-right: 1px solid var(--line);
+    }
+    .info-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* 右側三列資訊 */
+    .info-rows {
+      display: flex;
+      flex-direction: column;
+    }
+    .info-row {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      border-bottom: 1px solid var(--line);
+      gap: 28px;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row-label {
+      min-width: 100px;
+    }
     .info-col-en {
       font-family: 'Montserrat', sans-serif;
       font-size: 10px;
       letter-spacing: 0.38em;
       color: var(--light);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .info-col-zh {
       font-family: 'Noto Serif TC', serif;
       font-size: 12px;
       color: var(--light);
       letter-spacing: 0.12em;
-      margin-bottom: 24px;
     }
+    .info-row-content { flex: 1; }
     .info-col-main {
       font-family: 'Playfair Display', serif;
       font-size: 19px;
       font-weight: 400;
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.6;
     }
     .info-col-sub {
       font-family: 'Noto Serif TC', serif;
       font-size: 13px;
       font-weight: 300;
       color: var(--mid);
-      line-height: 2.1;
-      margin-top: 10px;
+      line-height: 2.0;
+      margin-top: 6px;
     }
 
     /* ── TRANSPORT ── */
@@ -432,9 +448,10 @@
       }
       .nav-links.open { display: flex; }
       .hamburger { display: flex; }
-      .info-inner { grid-template-columns: 1fr; border: 1px solid var(--line); }
-      .info-divider { width: 100%; height: 1px; background: var(--line); }
-      .info-col { padding: 36px 20px; }
+      .info-inner { grid-template-columns: 1fr; }
+      .info-photo { height: 280px; border-right: none; border-bottom: 1px solid var(--line); }
+      .info-row { padding: 20px 24px; gap: 16px; }
+      .info-row-label { min-width: 72px; }
       .transport-grid { grid-template-columns: 1fr; }
       .transport-card { border-right: none; border-bottom: 1px solid var(--line); }
       .transport-card:last-child { border-bottom: none; }
@@ -446,7 +463,7 @@
 
 <!-- NAVBAR -->
 <nav id="navbar">
-  <div class="nav-logo">峻旋Sam &amp; 怡廷Amy</div>
+  <div class="nav-logo">峻旋 &amp; 怡廷</div>
   <ul class="nav-links" id="nav-links">
     <li><a href="#about">關於我們</a></li>
     <li><a href="#info">婚禮資訊</a></li>
@@ -470,7 +487,7 @@
     <div class="hero-divider-line"></div>
   </div>
 
-  <h1 class="hero-name">峻旋 Sam <em>&amp;</em> 怡廷 Amy </h1>
+  <h1 class="hero-name">峻旋 <em>&amp;</em> 怡廷</h1>
   <p class="hero-sub">我們結婚了</p>
 
   <div class="hero-quote-wrap">
@@ -551,35 +568,52 @@
       <div class="sec-rule"></div>
     </div>
 
-    <!-- 照片區塊：將 src 換成你的照片網址 -->
-    <div class="info-photo">
-      <img src='./DSC05243.jpg' />
-    </div>
-
-    <!-- 橫向三欄資訊 -->
     <div class="info-inner">
-      <div class="info-col">
-        <div class="info-col-en">DATE</div>
-        <div class="info-col-zh">日期</div>
-        <div class="info-col-main">2026 年 07 月 04 日</div>
-        <div class="info-col-sub">星期六</div>
+
+      <!-- 左側：直式照片（將 src 換成你的照片路徑） -->
+      <div class="info-photo">
+        <img src="./cover.jpg" alt="峻旋 & 怡廷" />
       </div>
-      <div class="info-divider"></div>
-      <div class="info-col">
-        <div class="info-col-en">TIME</div>
-        <div class="info-col-zh">時間</div>
-        <div class="info-col-main">下午 02:30</div>
-        <div class="info-col-sub">典禮開始</div>
-      </div>
-      <div class="info-divider"></div>
-      <div class="info-col">
-        <div class="info-col-en">LOCATION</div>
-        <div class="info-col-zh">地點</div>
-        <div class="info-col-main" style="font-size:17px">基督教台南聖教會</div>
-        <div class="info-col-sub">
-          Tainan Holiness Church<br>
-          70847 臺南市安平區<br>府前四街 90 號
+
+      <!-- 右側：三列資訊 -->
+      <div class="info-rows">
+
+        <div class="info-row">
+          <div class="info-row-label">
+            <div class="info-col-en">DATE</div>
+            <div class="info-col-zh">日期</div>
+          </div>
+          <div class="info-row-content">
+            <div class="info-col-main">2026 年 07 月 04 日</div>
+            <div class="info-col-sub">星期六</div>
+          </div>
         </div>
+
+        <div class="info-row">
+          <div class="info-row-label">
+            <div class="info-col-en">TIME</div>
+            <div class="info-col-zh">時間</div>
+          </div>
+          <div class="info-row-content">
+            <div class="info-col-main">下午 02:30</div>
+            <div class="info-col-sub">典禮開始</div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-row-label">
+            <div class="info-col-en">LOCATION</div>
+            <div class="info-col-zh">地點</div>
+          </div>
+          <div class="info-row-content">
+            <div class="info-col-main" style="font-size:17px">基督教台南聖教會</div>
+            <div class="info-col-sub">
+              Tainan Holiness Church<br>
+              70847 臺南市安平區府前四街 90 號
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
