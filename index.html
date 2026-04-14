@@ -6,7 +6,7 @@
   <title>峻旋 Sam & 怡廷 Amy — 婚禮邀請</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+TC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -21,7 +21,7 @@
       --accent2: #a66e6e;           /* morandi-red：第二強調色 */
       --line:    rgba(90,74,66,0.14); /* 以 text-main 為基底的細線 */
       --white:   #ffffff;
-      --font-zh: 'Noto Sans TC', sans-serif;       /* 中文字體 */
+      --font-zh: 'Noto Serif TC', serif;       /* 中文字體 */
       --font-en: 'Cormorant Garamond', serif !important;  /* 英文字體 */
     }
 
@@ -267,7 +267,7 @@
     .sec-rule { width: 36px; height: 1px; background: var(--accent); margin: 18px auto 0; opacity: 0.6; }
 
     /* ── COUNTDOWN ── */
-    #countdown { padding: 100px 24px; background: var(--bg2); text-align: center; }
+    #countdown { padding: 100px 24px; background: var(--bg); text-align: center; }
     .cd-grid {
       display: flex;
       justify-content: center;
@@ -298,7 +298,7 @@
     @media(max-width:600px){ .cd-sep { display: none; } }
 
     /* ── ABOUT ── */
-    #about { padding: 100px 24px; text-align: center; }
+    #about { padding: 100px 24px; text-align: center; background: var(--bg2);}
     .about-body { max-width: 580px; margin: 0 auto; }
     .about-zh {
       font-family: var(--font-zh);
@@ -317,7 +317,7 @@
     }
 
     /* ── INFO ── */
-    #info { padding: 100px 24px; background: var(--bg2); }
+    #info { padding: 100px 24px; background: var(--bg); }
 
     /* 方案 C：左大圖右資訊清單 */
     .info-inner {
@@ -429,7 +429,7 @@
     }
 
     /* ── TRANSPORT ── */
-    #transport { padding: 100px 24px; }
+    #transport { padding: 100px 24px; background: var(--bg2);}
     .transport-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -474,7 +474,7 @@
     }
 
     /* ── DRESS CODE ── */
-    #dresscode { padding: 100px 24px; background: var(--bg2); text-align: center; }
+    #dresscode { padding: 100px 24px; background: var(--bg); text-align: center; }
     .dc-note {
       font-family: var(--font-zh);
       font-size: 15px;
@@ -508,7 +508,7 @@
     }
 
     /* ── RSVP ── */
-    #rsvp { padding: 100px 24px; text-align: center; }
+    #rsvp { padding: 100px 24px; text-align: center; background: var(--bg2);}
     .rsvp-note {
       font-family: var(--font-zh);
       font-size: 15px;
@@ -543,7 +543,7 @@
     /* ── FOOTER ── */
     footer {
       padding: 56px 24px;
-      background: var(--bg2);   /* morandi-deep #5b7065 */
+      background: var(--bg);   /* morandi-deep #5b7065 */
       text-align: center;
     }
     .footer-name {
@@ -863,7 +863,7 @@
     <div class="gform-wrap">
       <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSfz-yJjflU_FT6Zm6EoXUG9ad47Wd86166313m6kP9p8LsJ0A/viewform?embedded=true"
-        height="1843"
+        height="1325"
         frameborder="0"
         marginheight="0"
         marginwidth="0">載入中…</iframe>
