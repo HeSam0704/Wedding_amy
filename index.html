@@ -80,7 +80,14 @@
       text-align: center;
       padding: 80px 24px 80px;
       position: relative;
-      background: var(--bg);
+      background: url('./DSC04927改.webp') center/cover no-repeat;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(253, 250, 245, 0.52);
+      z-index: 0;
     }
     .hero-top-rule {
       position: absolute;
@@ -88,6 +95,7 @@
       transform: translateX(-50%);
       width: 1px; height: 52px;
       background: var(--line);
+      z-index: 1;
     }
     .hero-date {
       font-family: var(--font-en);
@@ -97,12 +105,16 @@
       color: var(--light);
       margin-bottom: 30px;
       animation: fadeUp 1s 0.2s both;
+      position: relative;
+      z-index: 1;
     }
     .hero-divider {
       display: flex; align-items: center; gap: 18px;
       margin: 0 auto 30px;
       width: 200px;
       animation: fadeUp 1s 0.3s both;
+      position: relative;
+      z-index: 1;
     }
     .hero-divider-line { flex: 1; height: 1px; background: var(--line); }
     .hero-divider-dot  { width: 4px; height: 4px; border-radius: 50%; background: var(--light); flex-shrink: 0; }
@@ -114,6 +126,8 @@
       letter-spacing: 0.04em;
       line-height: 1.0;
       animation: fadeUp 1s 0.4s both;
+      position: relative;
+      z-index: 1;
     }
     .hero-name em { font-style: italic; }
     .hero-sub {
@@ -124,10 +138,14 @@
       letter-spacing: 0.28em;
       margin-top: 18px;
       animation: fadeUp 1s 0.5s both;
+      position: relative;
+      z-index: 1;
     }
     .hero-quote-wrap {
       margin-top: 64px;
       animation: fadeUp 1s 0.65s both;
+      position: relative;
+      z-index: 1;
     }
     .hero-quote-label {
       font-family: var(--font-en);
@@ -158,6 +176,7 @@
       transform: translateX(-50%);
       width: 1px; height: 56px;
       background: linear-gradient(to bottom, var(--line), transparent);
+      z-index: 1;
     }
 
     /* ── SECTION HEADER ── */
@@ -302,7 +321,7 @@
     }
     .info-col-sub {
       font-family: 'Noto Serif TC', serif;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 300;
       color: var(--text);
       line-height: 2.1;
@@ -667,7 +686,8 @@
           </div>
           <div class="info-row-text">
             <div class="info-col-label">地點 LOCATION</div>
-            <div class="info-col-main" style="font-size:18px">基督教台南聖教會 Tainan Holiness Church</div>
+            <div class="info-col-main" style="font-size:19px">基督教台南聖教會 <bt>
+              Tainan Holiness Church</div>
             <div class="info-col-sub">
               70847 臺南市安平區府前四街 90 號
             </div>
