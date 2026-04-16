@@ -527,7 +527,7 @@
     #dresscode { padding: 100px 24px; background: var(--bg); text-align: center; }
     .dc-note1 {
       font-family: var(--font-zh);
-      font-size: 18px;
+      font-size: 20px;
       color: var(--bg-dark);
       line-height: 2.5;
       max-width: 440px;
@@ -663,6 +663,45 @@
       .transport-card { border-right: none; border-bottom: 1px solid var(--line); }
       .transport-card:last-child { border-bottom: none; }
       .rsvp-row { grid-template-columns: 1fr; }
+.t-body {
+    font-size: 14px;        /* 手機版字體縮小，避免斷行 */
+    line-height: 2.0;
+  }
+  .t-label {
+    font-size: 16px;
+  }
+  .transport-card {
+    padding: 32px 20px;     /* 減少左右內距，給文字更多空間 */
+  }
+  .t-body p {
+    text-align: left;       /* 左對齊，避免置中造成奇怪斷行 */
+    word-break: keep-all;   /* 中文避免在奇怪位置斷行 */
+  }
+  .dc-note2 {
+    font-size: 14px;
+  }
+  .about-zh {
+    font-size: 15px;
+  }
+  .info-col-main {
+    font-size: 16px;
+  }
+  .info-col-sub {
+    font-size: 14px;
+  }
+  .rsvp-note {
+    font-size: 16px;
+  }
+.swatches {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 固定三欄 */
+    gap: 24px 16px;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .swatch {
+    align-items: center;
+  }
     }
   </style>
 </head>
@@ -778,7 +817,13 @@
   margin: 0 auto;
   text-align: center;
 ">      
-	這是我們都很喜歡的一首歌，<br>感謝上帝的帶領，讓我們遇見了生命中那個『特別的人』。<br>在過程中，我們深深體會到：最美的愛不是瞬間的火花，<br>而是在神的愛中，牽手走過每一段平凡的日常。<br>誠摯邀請親愛的您，與我們一同分享這份喜悅!
+	這是我們都很喜歡的一首歌，
+	<br>感謝上帝的帶領，
+	<br>讓我們遇見了生命中那個『特別的人』。
+	<br>在過程中，我們深深體會到：
+	<br>最美的愛不是瞬間的火花，
+	<br>而是在神的愛中，牽手走過每一段平凡的日常。
+	<br>誠摯邀請親愛的您，與我們一同分享這份喜悅!
       </p>
     </div>
   </div>
@@ -886,25 +931,25 @@
   <p>
     <i class="fa-solid fa-train"></i>
     搭區間車前往台南火車站
-    <span style="font-size:11px">(約23分鐘)</span>
+    <span style="font-size:11px; white-space:nowrap">(約23分鐘)</span>
   </p>
 
   <p>
     <i class="fa-solid fa-person-walking"></i>
     步行至公車站中山路C
-    <span style="font-size:11px">(約3分鐘)</span>
+    <span style="font-size:11px; white-space:nowrap">(約3分鐘)</span>
   </p>
 
   <p>
     <i class="fa-solid fa-bus"></i>
     搭10,14號前往永華市政中心
-    <span style="font-size:10px">(約13分鐘)</span>
+    <span style="font-size:10px; white-space:nowrap">(約13分鐘)</span>
   </p>
 
   <p>
     <i class="fa-solid fa-person-walking"></i>
     步行至台南聖教會
-    <span style="font-size:11px">(約2分鐘)</span>
+    <span style="font-size:11px; white-space:nowrap">(約2分鐘)</span>
   </p>
 </div>
   </div>
@@ -937,19 +982,19 @@
   <p>
     <i class="fa-solid fa-person-walking"></i>
     步行至公車站中山路C
-    <span style="font-size:11px">(約3分鐘)</span>
+    <span style="font-size:11px; white-space:nowrap">(約3分鐘)</span>
   </p>
 
   <p>
     <i class="fa-solid fa-bus"></i>
     搭10,14號前往永華市政中心
-    <span style="font-size:10px">(約13分鐘)</span>
+    <span style="font-size:10px; white-space:nowrap">(約13分鐘)</span>
   </p>
 
   <p>
     <i class="fa-solid fa-person-walking"></i>
     步行至台南聖教會
-    <span style="font-size:11px">(約2分鐘)</span>
+    <span style="font-size:11px; white-space:nowrap">(約2分鐘)</span>
   </p>
 </div>
   </div>
