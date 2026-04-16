@@ -677,7 +677,12 @@
     text-align: left;       /* 左對齊，避免置中造成奇怪斷行 */
     word-break: keep-all;   /* 中文避免在奇怪位置斷行 */
   }
-  .dc-note2 {
+ .dc-note1 {
+  white-space: nowrap;    /* 強制不換行 */
+  font-size: 16px;        /* 同時縮小字體，避免超出螢幕寬度 */
+  max-width: 100%;
+}
+ .dc-note2 {
     font-size: 14px;
   }
   .about-zh {
